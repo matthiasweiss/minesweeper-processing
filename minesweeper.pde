@@ -38,6 +38,26 @@ void draw() {
     Field f = fields[i];
     f.show(i);
   }
+  
+   checkGameOver();
+}
+
+void checkGameOver() {
+  textSize(56);
+  fill(0);
+  for (Field f: fields) {
+    if (f.mine && f.shown) {
+      noLoop();
+      text("GAME LOST", width / 4, height / 2);
+      return;
+    }
+    if (! f.mine && ! f.shown) {
+      return;
+    }
+  }
+  noLoop();
+  text("GAME WON", width / 4, height / 2);
+  for (Field f: fields) f.shown = true;
 }
 
 int[] getRandomIndices(int n, int max) {

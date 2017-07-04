@@ -40,6 +40,7 @@ class Field {
       fill(236, 240, 241);
       rect(this.x, this.y, grid, grid); 
       fill(41, 128, 185);
+      textSize(grid/2);
       String s = this.calcNeighbours() == 0 ? "" : "" + this.calcNeighbours();
       text(s, this.x + grid/2-5, this.y + grid/1.5);
       return;
